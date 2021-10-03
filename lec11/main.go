@@ -53,12 +53,11 @@ func main() {
 
 }
 
-// printFirstName function could access and return any data field from Person type
+// function with receiver is a great way to access and return any data field from struct type
 func (p *Person) printFirstName() string {
 	return p.FirstName
 }
 
-//
 func (p *Person) printLastName() string {
 	return p.LastName
 }
