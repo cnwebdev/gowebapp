@@ -13,3 +13,5 @@ Why not PHP/Laravel, or Node.js...?
 - Strong concurrency support
 - Cross platform
 - Excellent package management & testing built in
+- Go application runs very well on multi-processors system as the native binary
+- Go application use very little system resource compare to most application written in other languages
