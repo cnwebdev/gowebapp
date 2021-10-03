@@ -1,7 +1,28 @@
 package main
 
+import "fmt"
+
 func main() {
 
+	var names = []string{ "Mike", "Son", "Ken", } 
+
+	var distances = []int {2796, 2332, 1866, 2211, 2898}
+
+	var data = []byte {'A', 'B', 'C', 'D', 'E'}
+
+	var currency = []float64{1.1595, 110.96, 1.3544, 1.2641}
+
+	var status = []bool{true, false, true, false}
+
+	fmt.Printf("Best friends: %T %d %t\n", names, len(names), names==nil)
+	fmt.Printf("distances   : %T %d %t\n", distances, len(distances), distances==nil)
+	fmt.Printf("data        : %T %d %t\n", data, len(data), data==nil)
+	fmt.Printf("currency    : %T %d %t\n", currency, len(currency), currency==nil)
+	fmt.Printf("status      : %T %d %t\n", status, len(status), status==nil)
+
+	if len(distances) == len(data) {
+		fmt.Println("The length of distances and data slices are equal!")
+	}
 }
 
 // ---------------------------------------------------------
