@@ -1,7 +1,9 @@
 // Types and Structs
 package main
 
-import "log"
+import (
+	"log"
+)
 
 type Vih struct {
 	Make      string
@@ -53,8 +55,17 @@ func main() {
 	log.Println("What vihicle does this person drive?", getInfo(maverick.Make), "Model:", getInfo(maverick.Model))
 	log.Println("The vihicle year build:", getInfo(maverick.YearBuilt))
 
+	// log.Println("Passing a struct to function", printStruct(p1001))
+	chris := printStruct(p1001)
+	log.Println(chris)
+
 }
 
+// Passing struct
 func getInfo(str string) string {
 	return str
+}
+
+func printStruct(s Person) Person {
+	return s
 }
