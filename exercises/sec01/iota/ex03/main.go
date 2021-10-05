@@ -18,10 +18,10 @@ func main() {
 	// NOTE : You should remove all the initializers below
 	//        first. Then use iota to fix it.
 	const (
-		Spring = (iota + 1) * 3
-		Summer 
-		Fall   
-		Winter 
+		Spring = (1 + iota) * 3 // 3
+		Summer // (1 + 1) * 3 = 6
+		Fall   // (1 + 2) * 3 = 9
+		Winter  // (1 + 3) * 3 = 12
 	)
 
 	fmt.Println(Winter, Spring, Summer, Fall)
