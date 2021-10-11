@@ -17,4 +17,5 @@ func main() {
 	} else {
 		fmt.Printf("%s * 5 = %d\n", args[0], n*5)
 	}
+
 }
