@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // STORY
 //  You want to write a program that will manipulate a
@@ -35,6 +41,35 @@ package main
 //    Unknown command: "genius"
 // ---------------------------------------------------------
 
+const usage = `
+Usage: commands [operator] [text]
+Available commands: lower, upper and title
+`
+
 func main() {
+
+	args := os.Args[1:]
+
+	if len(args) != 2 {
+		fmt.Println(usage)
+		return
+	}
+
+	op, str := args[0], args[1]
+
+	switch op {
+	case "lower":
+		str = strings.ToLower(str)
+	case "upper":
+		str = strings.ToUpper(str)
+	case "title":
+		str = strings.ToLower(str)
+		str = strings.Title(str)
+	default:
+		fmt.Printf("Unknown command: %q\n", op)
+		return
+	}
+
+	fmt.Printf("your String %s => %s\n", args[1], str)
 
 }

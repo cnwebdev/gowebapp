@@ -77,18 +77,18 @@ func main() {
 		return
 	}
 
-	m, err := strconv.ParseFloat(args[0], 64)
+	mag, err := strconv.ParseFloat(args[0], 64)
 	if err != nil {
 		fmt.Printf("%q is not a number.\n", args[0])
 		return
-	} else if m < 0.0 {
-		fmt.Printf("%.1f is a negative number.\n", m)
+	} else if mag < 0.0 {
+		fmt.Printf("%.1f is a negative number.\n", mag)
 		return
 	}
 
 	var msg string
 
-	switch {
+	switch m := mag; {
 	case m < 2.0:
 		msg = "mirco"
 	case m < 3.0:
@@ -109,5 +109,5 @@ func main() {
 		msg = "massive"
 	}
 
-	fmt.Printf("The earth quake magnitute of %.2f is %s\n", m, msg)
+	fmt.Printf("The earth quake magnitute of %.2f is %s\n", mag, msg)
 }

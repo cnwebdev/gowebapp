@@ -77,24 +77,24 @@ func main() {
 
 	var mes string
 
-	switch {
-	case des == "micro":
+	switch des {
+	case "micro":
 		mes = "0.1 and 2.0"
-	case des == "very minor":
+	case "very minor":
 		mes = "2.0 and 3.0"
-	case des == "minor":
+	case "minor":
 		mes = "3.0 and 4.0"
-	case des == "light":
+	case "light":
 		mes = "4.0 and 5.0"
-	case des == "moderate":
+	case "moderate":
 		mes = "5.0 and 6.0"
-	case des == "strong":
+	case "strong":
 		mes = "6.0 and 7.0"
-	case des == "major":
+	case "major":
 		mes = "7.0 and 8.0"
-	case des == "great":
+	case "great":
 		mes = "8.0 and 10.0"
-	case des == "massive":
+	case "massive":
 		mes = "10+"
 	default:
 		fmt.Printf("%q is unknown.\n", des)

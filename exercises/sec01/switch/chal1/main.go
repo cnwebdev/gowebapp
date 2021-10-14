@@ -15,14 +15,14 @@ func main() {
 
 	var greet string
 
-	switch true {
-	case tnow < 6:
+	switch t := tnow; {
+	case t < 6:
 		greet = "Good night!"
-	case tnow < 12:
+	case t < 12:
 		greet = "Good morning!"
-	case tnow < 18:
+	case t < 18:
 		greet = "Good afternoon!"
-	case tnow < 24:
+	case t < 24:
 		greet = "Good evening!"
 	default:
 		fmt.Println("Please enter time from 1 to 23.")
