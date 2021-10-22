@@ -7,26 +7,29 @@ import (
 )
 
 // ---------------------------------------------------------
-// EXERCISE: Only Evens
+// EXERCISE: Break Up
 //
-//  1. Extend the "Sum up to N" exercise
-//  2. Sum only the even numbers
+//  1. Extend the "Only Evens" exercise
+//  2. This time, use an infinite loop.
+//  3. Break the loop when it reaches to the `max`.
 //
 // RESTRICTIONS
-//  Skip odd numbers using the `continue` statement
+//  You should use the `break` statement once.
+//
+// HINT
+//  Do not forget incrementing the `i` before the `continue`
+//  statement and at the end of the loop.
 //
 // EXPECTED OUTPUT
-//  Let's suppose that the user runs it like this:
-//
 //    go run main.go 1 10
-//
-//  Then it should print:
-//
 //    2 + 4 + 6 + 8 + 10 = 30
 // ---------------------------------------------------------
 
 func main() {
-	var sum int
+	var (
+		i   = 1
+		sum int
+	)
 
 	args := os.Args[1:]
 	if len(args) != 1 {
@@ -43,7 +46,11 @@ func main() {
 		return
 	}
 
-	for i := 1; i <= max; i++ {
+	for {
+		if i > max {
+			break
+		}
+
 		s := " + "
 		if i == max {
 			s = " = "
@@ -52,6 +59,8 @@ func main() {
 			fmt.Printf("%d%s", i, s)
 			sum += i
 		}
+
+		i++
 	}
 	fmt.Println(sum)
 }
