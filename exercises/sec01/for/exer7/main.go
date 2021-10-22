@@ -33,17 +33,16 @@ import (
 //    1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55
 // ---------------------------------------------------------
 
-const (
-	usage = `
-Usage: command [min] [max]
-Example: command 1 5
-`
-	minErr    = "%q is not a number.\n"
-	maxErr    = "%q is not a number.\n"
-	minMaxErr = "min should be lower than max."
-)
-
 func main() {
+	const (
+		usage = `
+	Usage: command [min] [max]
+	Example: command 1 5
+	`
+		minErr    = "%q is not a number.\n"
+		maxErr    = "%q is not a number.\n"
+		minMaxErr = "min should be smaller than max."
+	)
 
 	var (
 		min int
