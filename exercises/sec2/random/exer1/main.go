@@ -68,19 +68,21 @@ func main() {
 	// Convert user input string to number
 	guess, err := strconv.Atoi(args[0])
 	if err != nil {
-		fmt.Println(atoiErr)
+		fmt.Printf(atoiErr, args[0])
+		return
 	}
 
 	// Check for negative user input number
 	if guess < 0 {
 		fmt.Println(numErr)
+		return
 	}
 
 	// Set computer random number
 	rand.Seed(time.Now().UnixNano())
 
 	// Loop: generate 5 random number
-	for i := 0; i < guess; i++ {
+	for i := 0; i < max; i++ {
 		cRand := rand.Intn(guess + 1)
 
 		// compare user number with computer generate number
