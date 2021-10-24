@@ -59,7 +59,6 @@ func main() {
 			fmt.Printf("%d%s", i, s)
 			sum += i
 		}
-
 		i++
 	}
 	fmt.Println(sum)
