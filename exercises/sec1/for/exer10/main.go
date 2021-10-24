@@ -64,20 +64,18 @@ func main() {
 		t := time.Now().UnixNano()
 		rand.Seed(t)
 
-		r := rand.Intn(len(str))
+		r := rand.Intn(len(str) + 1)
 
-		// fmt.Println(rand.Intn(len(str)))
-
-		for i := 0; i <= len(str)-1; i++ {
+		for i, v := range str {
 			if i == r {
-				if str[i] == "\r" || str[i] == "\f" {
-					fmt.Printf("escape sequence: %s", str[i])
+				if v == "\r" || v == "\f" {
+					fmt.Printf("%d escape sequence: %s", r, v)
 				} else {
-					fmt.Printf("%s Please Wait. Processing....", str[i])
+					fmt.Printf("%d %s Please Wait. Processing....", r, v)
 				}
+				fmt.Println()
 			}
 			time.Sleep(250 * time.Millisecond)
 		}
-		fmt.Println()
 	}
 }

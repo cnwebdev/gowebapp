@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"strconv"
 	"time"
 )
 
@@ -38,14 +40,35 @@ func main() {
 		fmt.Println("Magic 8-Ball says:", answers[rand.Intn(len(answers))])
 	*/
 
-	max := 10
-	u, _ := time.ParseDuration(("2us"))
-	fmt.Printf("One microsencond is %d nanoseconds,\n", u.Nanoseconds())
+	/*
+		max := 10
+		u, _ := time.ParseDuration(("2us"))
+		fmt.Printf("One microsencond is %d nanoseconds,\n", u.Nanoseconds())
 
-	t := time.Now().UnixNano()
+		t := time.Now().UnixNano()
 
-	rand.Seed(t)
+		rand.Seed(t)
 
-	fmt.Println(rand.Intn(max))
+		fmt.Println(rand.Intn(max))
+	*/
 
+	var r int
+
+	args := os.Args[1:]
+
+	n, _ := strconv.Atoi(args[0])
+
+	rand.Seed(time.Now().UnixNano())
+
+	for i := 0; i < n; i++ {
+		r = rand.Intn(n + 1)
+		if r == n {
+			fmt.Printf("Computer random number %d = your number %d\n", r, n)
+			fmt.Println("You WIN!")
+			return
+		}
+	}
+	fmt.Printf("Computer random number %d = your number %d\n", r, n)
+
+	fmt.Println("You LOSS, try again!")
 }
