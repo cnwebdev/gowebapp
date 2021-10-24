@@ -1,4 +1,3 @@
-// Exercise project - Word finder
 package main
 
 import (
@@ -6,6 +5,22 @@ import (
 	"os"
 	"strings"
 )
+
+// ---------------------------------------------------------
+// EXERCISE: Case Insensitive Search
+//
+//  Allow for case-insensitive searching
+//
+// EXAMPLE
+//  Let's say that the user runs the program like this:
+//    go run main.go LAZY
+//
+//  Or like this: go run main.go lAzY
+//  Or like this: go run main.go lazy
+//
+//  For all cases above, the program should find
+//  the "lazy" keyword.
+// ---------------------------------------------------------
 
 const (
 	usage = `Word Finder
@@ -15,7 +30,7 @@ you job is to enter a query word, the program will display the matching word fou
 Usage example: command [word]
 `
 	// Declare and words string
-	wordStr = "" + "nhu co bac ho trong ngay vui dai thang, vua ngo ra bi no go u dau nhu co bac ho"
+	wordStr = "" + "nhu co bac ho trong ngay vui dai thang vua ngo ra bi no go u dau nhu co bac ho"
 )
 
 func main() {
@@ -38,7 +53,7 @@ func main() {
 	// fmt.Printf("%T %s\n", wordS, wordS)
 
 	// Compare user query to word slice
-queryies:
+	// queryies:
 	for _, q := range query {
 		q = strings.ToLower(q)
 		// fmt.Printf("%d %s\n", i, q)
@@ -46,8 +61,8 @@ queryies:
 			w = strings.ToLower(w)
 			if q == w {
 				fmt.Printf("query for %q... We found a match #%d %q\n", q, j+1, w)
-				// break queryies
-				continue queryies
+				// break // queryies
+				// continue // queryies
 			}
 		}
 	}
