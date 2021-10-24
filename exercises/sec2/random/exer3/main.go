@@ -1,3 +1,17 @@
+// ---------------------------------------------------------
+// EXERCISE: Double Guesses
+//
+//  Let the player guess two numbers instead of one.
+//
+// HINT:
+//  Generate random numbers using the greatest number
+//  among the guessed numbers.
+//
+// EXAMPLES
+//  go run main.go 5 6
+//  Player wins if the random number is either 5 or 6.
+// ---------------------------------------------------------
+
 package main
 
 import (
@@ -8,79 +22,68 @@ import (
 	"time"
 )
 
-// ---------------------------------------------------------
-// EXERCISE: Random Messages
-//
-//  Display a few different won and lost messages "randomly".
-//
-// HINTS
-//  1. You can use a switch statement to do that.
-//  2. Set its condition to the random number generator.
-//  3. I would use a short switch.
-//
-// EXAMPLES
-//  The Player wins: then randomly print one of these:
-//
-//  go run main.go 5
-//    YOU WON
-//  go run main.go 5
-//    YOU'RE AWESOME
-//
-//  The Player loses: then randomly print one of these:
-//
-//  go run main.go 5
-//    LOSER!
-//  go run main.go 5
-//    YOU LOST. TRY AGAIN?
-// ---------------------------------------------------------
-
 // Declare wins/losses messages
 const (
 	usage = `GUESS TO WIN GAME
 The computer will randomly generate %d numbers, 
 You will win the game if your guess number matches any of 
 the computer's generated numbers.
-
+	
 How to play?
-Example: command [8]
-`
+You can enter upto 2 guesses each round.
+
+Example 1: command [8]
+Example 2: command [8] [9]
+	`
 	win1 = `🏆 Wow, you got it the first try!
-`
+	`
 	win2 = `🎉 Congrad, you got me :(!
-`
+	`
 	win3 = `🎖 You got it again!
-`
+	`
 	win4 = `🙌 You are too good, I quit!
-`
+	`
 	loss1 = `👹 Gotcha, you loss!
-`
+	`
 	loss2 = `😭 Oh no, you have to do better!
-`
+	`
 	atoiErr = `%q is not a number!
-`
-	numErr = `Please enter a positive number!
-`
-	max = 10
+	`
+	numErr = `Please enter positive numbers!
+	`
 )
 
 func main() {
-
+	var (
+		guess1, guess2 int
+		err            error
+		max            = 10
+	)
 	// Read user number from command-line
 	args := os.Args[1:]
 	l := len(args)
 
 	// Verify user input syntax
-	if l != 1 {
-		fmt.Printf(usage, max)
+	if l < 1 {
+		fmt.Printf(usage+"\n", max)
 		return
 	}
 
 	// Convert user string to number and verify conversion error
-	guess, err := strconv.Atoi(args[0])
+	guess1, err = strconv.Atoi(args[0])
 	if err != nil {
 		fmt.Printf(atoiErr, args[0])
 		return
-	} else if guess < 0 {
+	}
+
+	if l == 2 {
+		guess2, err = strconv.Atoi((args[1]))
+		if err != nil {
+			fmt.Printf(atoiErr, args[1])
+		}
+	}
+
+	if guess1 < 0 || guess2 < 0 {
 		fmt.Println(numErr)
 		return
 	}
@@ -91,9 +94,15 @@ func main() {
 	// Compare user number to computer generated number
 	// Print random wins/losses messages for each matching case
 	for i := 0; i < max; i++ {
-		cRand := rand.Intn(guess + 1)
-		fmt.Println(cRand, guess)
-		if cRand == guess {
+		var cRand int
+		if guess1 < guess2 {
+			cRand = rand.Intn(guess2 + 1)
+		} else {
+			cRand = rand.Intn(guess1 + 1)
+		}
+
+		fmt.Println(cRand, guess1, guess2)
+		if cRand == guess1 || cRand == guess2 {
 			switch rand.Intn(5) {
 			case 0:
 				fmt.Println(win1)
