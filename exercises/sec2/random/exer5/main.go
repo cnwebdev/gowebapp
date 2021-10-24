@@ -9,21 +9,40 @@ import (
 )
 
 // ---------------------------------------------------------
-// EXERCISE: Verbose Mode
+// EXERCISE: Enough Picks
 //
-//  When the player runs the game like this:
+//  If the player's guess number is below 10;
+//  then make sure that the computer generates a random
+//  number between 0 and 10.
 //
-//    go run main.go -v 4
+//  However, if the guess number is above 10; then the
+//  computer should generate the numbers
+//  between 0 and the guess number.
 //
-//  Display each generated random number:
-
-//    1 3 4 🎉  YOU WIN!
+// WHY?
+//  This way the game will be harder.
 //
-//  In this example, computer picks 1, 3, and 4. And the
-//  player wins.
+//  Because, in the current version of the game, if
+//  the player's guess number is for example 3; then the
+//  computer picks a random number between 0 and 3.
 //
-// HINT
-//  You need to get and interpret the command-line arguments.
+//  So, currently a player can easily win the game.
+//
+// EXAMPLE
+//  Suppose that the player runs the game like this:
+//    go run main.go 9
+//
+//  Or like this:
+//    go run main.go 2
+//
+//    Then the computer should pick a random number
+//    between 0-10.
+//
+//  Or, if the player runs it like this:
+//    go run main.go 15
+//
+//    Then the computer should pick a random number
+//    between 0-15.
 // ---------------------------------------------------------
 
 const (
@@ -67,8 +86,9 @@ func main() {
 	l := len(args)
 
 	// Verify user input syntax
-	// Convert user string to number and verify conversion error
+
 	if l == 1 {
+		// Convert user string to number and verify conversion error
 		guess, err = strconv.Atoi(args[0])
 		if err != nil {
 			fmt.Printf(atoiErr, args[0])
@@ -79,6 +99,7 @@ func main() {
 		}
 	} else if l == 2 {
 		v = args[0]
+		// Convert user string to number and verify conversion error
 		guess, err = strconv.Atoi(args[1])
 		if err != nil {
 			fmt.Printf(atoiErr, args[1])
@@ -97,6 +118,11 @@ func main() {
 
 	// Generate random number
 	rand.Seed(time.Now().UnixNano())
+
+	// Setup enough random number
+	if guess > max {
+		max = guess
+	}
 
 	// Compare user number to computer generated number
 	// Print random wins/losses messages for each matching case
