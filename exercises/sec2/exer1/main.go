@@ -36,11 +36,8 @@ Usage example: command [word]
 func main() {
 
 	// Read the user query from command-line
-	args := os.Args[1:]
-	l := len(args)
-
-	// Store user query work in query
-	query := args[0:]
+	query := os.Args[1:]
+	l := len(query)
 
 	// Verify user input syntax
 	if l < 1 {
