@@ -32,25 +32,21 @@ import (
 // ---------------------------------------------------------
 
 func main() {
-
 	num := os.Args[1:]
 	fmt.Printf("%T %s\n", num, num)
 
-	for i, v := range num {
+	for _, v := range num {
 		n, err := strconv.Atoi(v)
 		if err != nil {
 			continue
-			// fmt.Printf("%q is not a number\n", v)
 		}
-
-		if n <= 1 {
+		if n == 2 || n == 3 {
+			fmt.Print(n, " ")
+		} else if n <= 1 || n%2 == 0 || n%3 == 0 {
 			continue
+		} else {
+			fmt.Print(n, " ")
 		}
-
-		if n <= 3 {
-			continue
-		}
-
-		fmt.Printf("%-5d %d\n", i, n)
 	}
+	fmt.Println()
 }
