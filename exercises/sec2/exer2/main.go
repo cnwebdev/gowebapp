@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 // ---------------------------------------------------------
@@ -76,15 +77,47 @@ import (
 //    #2 : "/Users/inanc/go/bin"
 // ---------------------------------------------------------
 
+const (
+	usage = `Path Search
+The program reads user queries and read the computer local environment veriables PATH,
+then print out the matching search result.
+
+example: command [/Users/name/go]
+`
+)
+
 func main() {
+	// os.Getenv returns a string with environment directory path.
+	envPath := os.Getenv("PATH")
+	fmt.Println(envPath)
 
-	// os.Setenv("FOO", "1")
-	fmt.Println("PATH:", os.Getenv("PATH"))
-	fmt.Println("BAR:", os.Getenv("BAR"))
+	// Alternative function
+	// test := filepath.SplitList(envPath)
+	// fmt.Println(test)
 
-	fmt.Println()
-	for _, e := range os.Environ() {
-		// pair := strings.SplitN(e, "/", 2)
-		fmt.Println("This my env", e)
+	// strings.Split return a []string with environment path
+	path := strings.Split(envPath, ":")
+	fmt.Println(path)
+
+	// Read the user's query string from command-line
+	args := os.Args[1:]
+
+	// Verity the input syntax
+	if len(args) < 1 {
+		fmt.Println(usage)
+		return
+	}
+
+	query := args
+	// query = strings.ToLower(query)
+
+	for _, s := range path {
+		for j, q := range query {
+			s = strings.ToLower(s)
+			q = strings.ToLower(q)
+			if strings.Contains(s, q) {
+				fmt.Printf("#%-5d %s\n", j+1, s)
+			}
+		}
 	}
 }
