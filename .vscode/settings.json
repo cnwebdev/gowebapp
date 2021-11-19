@@ -1,4 +1,4 @@
 {
-    "editor.fontSize": 13,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 13
 }

@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Hipster's Love Bookstore Search Engine
 //
@@ -51,4 +57,50 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+
+	books := [...]string{
+		"Kafka's Revenge",
+		"Stay Golden",
+		"Everthingship",
+		"Kafka's Revenge 2nd Edition",
+	}
+
+	// Get the search query from the command-line argument
+	query := os.Args[1:]
+
+	// Check command-line input syntax
+	if len(query) < 1 {
+		fmt.Println("Tell me a book title")
+		return
+	}
+
+	var found bool
+
+	// Search for the books in the books array
+	fmt.Println("We found:")
+	for _, q := range query {
+
+		// Convert book title into lower case string
+		q = strings.ToLower(q)
+
+		for j, b := range books {
+			// Convert command-line argument text to lower case
+			b = strings.ToLower(b)
+
+			// if the book title found store it in match array
+			if strings.Contains(b, q) {
+
+				// Convert the book title back to Title format
+				b = strings.Title(b)
+				fmt.Printf("#%d: %q\n", j, b)
+				found = true
+			}
+		}
+	}
+
+	// Print the search result, other wise print the book doesn't exist.
+
+	if !found {
+		fmt.Println(query, "does not exist")
+	}
 }
