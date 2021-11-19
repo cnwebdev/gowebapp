@@ -69,7 +69,7 @@ func main() {
 	for _, q := range query {
 		q = strings.ToLower(q)
 		if q == "and" || q == "or" || q == "was" || q == "the" || q == "since" || q == "very" {
-			return
+			continue
 		}
 
 		for j, w := range words {
