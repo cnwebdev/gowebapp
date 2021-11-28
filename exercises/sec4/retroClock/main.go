@@ -32,12 +32,13 @@ func main() {
 		}
 
 		for l := range clock[0] {
-			for next, dn := range clock {
-				next := clock[next][l]
-				if dn == sep && second%2 == 0 {
-					next = "   "
+			for n, d := range clock {
+				s := clock[n][l]
+				// fmt.Print(s, "  ")
+				if d == sep && second%2 == 0 {
+					s = "   "
 				}
-				fmt.Print(next, "  ")
+				fmt.Print(s, "  ")
 			}
 			fmt.Println()
 		}
