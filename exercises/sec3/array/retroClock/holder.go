@@ -3,7 +3,7 @@ package main
 type Holder [5]string
 
 var (
-	Zero = Holder{
+	zero = Holder{
 		"███",
 		"█ █",
 		"█ █",
@@ -11,7 +11,7 @@ var (
 		"███",
 	}
 
-	One = Holder{
+	one = Holder{
 		"██ ",
 		" █ ",
 		" █ ",
@@ -19,7 +19,7 @@ var (
 		"███",
 	}
 
-	Two = Holder{
+	two = Holder{
 		"███",
 		"  █",
 		" █ ",
@@ -27,7 +27,7 @@ var (
 		"███",
 	}
 
-	Three = Holder{
+	three = Holder{
 		"███",
 		"  █",
 		" ██",
@@ -35,7 +35,7 @@ var (
 		"███",
 	}
 
-	Four = Holder{
+	four = Holder{
 		"█ █",
 		"█ █",
 		"███",
@@ -43,7 +43,7 @@ var (
 		"  █",
 	}
 
-	Five = Holder{
+	five = Holder{
 		"███",
 		"█  ",
 		"███",
@@ -51,7 +51,7 @@ var (
 		"███",
 	}
 
-	Six = Holder{
+	six = Holder{
 		"███",
 		"█  ",
 		"███",
@@ -59,7 +59,7 @@ var (
 		"███",
 	}
 
-	Seven = Holder{
+	seven = Holder{
 		"███",
 		"  █",
 		" █ ",
@@ -67,7 +67,7 @@ var (
 		"█  ",
 	}
 
-	Eight = Holder{
+	eight = Holder{
 		"███",
 		"█ █",
 		"███",
@@ -75,7 +75,7 @@ var (
 		"███",
 	}
 
-	Nine = Holder{
+	nine = Holder{
 		"███",
 		"█ █",
 		"███",
@@ -83,7 +83,7 @@ var (
 		"███",
 	}
 
-	Sep = Holder{
+	sep = Holder{
 		"   ",
 		" ░ ",
 		"   ",
@@ -93,5 +93,5 @@ var (
 )
 
 var Numbers = [...]Holder{
-	Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Sep,
+	zero, one, two, three, four, five, six, seven, eight, nine, sep,
 }

@@ -25,16 +25,16 @@ func main() {
 
 		clock := [...]Holder{
 			Numbers[hour/10], Numbers[hour%10],
-			Sep,
+			sep,
 			Numbers[minute/10], Numbers[minute%10],
-			Sep,
+			sep,
 			Numbers[second/10], Numbers[second%10],
 		}
 
 		for l := range clock[0] {
 			for next, dn := range clock {
 				next := clock[next][l]
-				if dn == Sep && second%2 == 0 {
+				if dn == sep && second%2 == 0 {
 					next = "   "
 				}
 				fmt.Print(next, "  ")
