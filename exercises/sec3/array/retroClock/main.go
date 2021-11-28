@@ -42,6 +42,6 @@ func main() {
 			fmt.Println()
 		}
 		fmt.Println()
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(time.Second)
 	}
 }
