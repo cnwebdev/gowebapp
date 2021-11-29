@@ -49,20 +49,16 @@ func main() {
 	var departure []time.Time
 	var graduation []int
 
-	pizza = []string{
-		"Pepperoni", "onion", "extra cheese",
-	}
+	pizza = append(pizza, "Pepperoni", "onion", "extra cheese")
 
 	now := time.Now()
 
-	departure = []time.Time{
+	departure = append(departure,
 		now,
-		now.Add(time.Hour * 24),
-	}
+		now.Add(time.Hour*24),
+		now.Add(time.Hour*48))
 
-	graduation = []int{
-		1998, 2005, 2018,
-	}
+	graduation = append(graduation, 1998, 2005, 2018)
 
 	fmt.Printf("%T %d %t\n", pizza, len(pizza), pizza == nil)
 	fmt.Printf("%T %d %t\n", departure, len(departure), departure == nil)
