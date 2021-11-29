@@ -44,7 +44,6 @@ func main() {
 
 	if len(namesC) != len(namesB) {
 		e = "not"
-
 	}
 	/*
 		for i, name := range namesB {
