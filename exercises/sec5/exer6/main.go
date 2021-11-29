@@ -97,14 +97,14 @@ Istanbul,500,10,5,1000000`
 
 	fmt.Printf("%s\n", strings.Repeat("-", 70))
 
-	var ts, tb, tba, tp int
+	var ts, tb, tba, tp float64
 	for i := range rows {
-		ts += size[i]
-		tb += beds[i]
-		tba += baths[i]
-		tp += prices[i]
+		ts += float64(size[i])
+		tb += float64(beds[i])
+		tba += float64(baths[i])
+		tp += float64(prices[i])
 	}
-	l := len(rows)
-	fmt.Printf("%-14s %-14d %-14d %-14d %d\n", "", ts/l, tb/l, tba/l, tp/l)
+	l := float64(len(rows))
+	fmt.Printf("%-14s %-14.2f %-14.2f %-14.2f %.2f\n", "", ts/l, tb/l, tba/l, tp/l)
 
 }
