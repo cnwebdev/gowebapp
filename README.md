@@ -1,17 +1,9 @@
-# gowebapp
+# Master Go 
 
-Building Web Application with Go
+This is a person learning project to learn practice and master all of Go's concepts
 
-## Why Go?
+## Resource  
 
-Why not PHP/Laravel, or Node.js...?
+Books:  
 
-- Go is a compiles language to a single binary file
-- No runtime environment to worry about
-- Statically typed, so no surprises error at run time
-- Go can help solve the mess of object oriented
-- Strong concurrency support
-- Cross platform
-- Excellent package management & testing built in
-- Go application runs very well on multi-processors system as the native binary
-- Go application use very little system resource compare to most application written in other languages
+Tools:  
