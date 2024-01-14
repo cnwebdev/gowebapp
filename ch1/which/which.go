@@ -30,7 +30,6 @@ func main() {
 			// Is it a regular file?
 			if mode&0111 != 0 {
 				fmt.Println(mode, fullPath)
-				return
 			}
 		}
 	}
