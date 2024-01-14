@@ -1,0 +1,9 @@
+go 1.21.6
+
+use (
+	./ch1/control
+	./ch1/curly
+	./ch1/forloop
+	./ch1/userinput
+	./ch1/variables
+)
