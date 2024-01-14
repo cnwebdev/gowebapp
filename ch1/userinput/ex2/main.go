@@ -19,7 +19,7 @@ func main() {
 	for i, v := range args[1:] {
 		n, err := strconv.ParseFloat(v, 64)
 		if err != nil {
-			continue
+			_ = fmt.Errorf("failed to convert float %v", err)
 		}
 		if i == 0 {
 			min, max = n, n
