@@ -11,3 +11,6 @@ Books:
 Tools:  
 - VsCode, VIM  
 - Languages: Go, HTML, CSS
+
+## Useful Project Notes 
+[Notes collected during practice](./Notes.md)

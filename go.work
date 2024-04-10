@@ -1,13 +1,6 @@
-go 1.21.6
+go 1.22.2
 
 use (
-	./ch1/control
-	./ch1/curly
-	./ch1/forloop
-	./ch1/logs
-	./ch1/progress
-	./ch1/syslog
-	./ch1/userinput
-	./ch1/variables
-	./ch1/which
+	./iteratemap
+	./nilmap
 )
