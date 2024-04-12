@@ -1,6 +1,13 @@
 go 1.22.2
 
 use (
+	./errorsex1
 	./iteratemap
+	./loctime
 	./nilmap
+	./numberex1
+	./runes
+	./stringex1
+	./structex1
+	./timedate
 )

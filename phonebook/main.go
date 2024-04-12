@@ -6,15 +6,15 @@ import (
 	"path"
 )
 
-type Entry struct {
+type Person struct {
 	Name    string
 	Surname string
 	Tel     string
 }
 
-var data = []Entry{}
+var data = []Person{}
 
-func search(key string) *Entry {
+func search(key string) *Person {
 	for i, v := range data {
 		if v.Surname == key {
 			return &data[i]
@@ -33,18 +33,18 @@ func main() {
 	args := os.Args
 	if len(args) == 1 {
 		exe := path.Base(args[0])
-		fmt.Printf("Usage: %s search|list <arguments>\n", exe)
+		fmt.Printf("Usage: %s [s|l] <arguments>\n", exe)
 		return
 	}
 
-	data = append(data, Entry{"Mike", "Mcafee", "2021234567"})
-	data = append(data, Entry{"Time", "Smith", "2025673444"})
-	data = append(data, Entry{"Kary", "Lee", "2022332567"})
+	data = append(data, Person{"Mike", "Mcafee", "2021234567"})
+	data = append(data, Person{"Time", "Smith", "2025673444"})
+	data = append(data, Person{"Kary", "Lee", "2022332567"})
 
 	// Differentiate between the commands
 	switch args[1] {
 	// the search command
-	case "search":
+	case "s":
 		if len(args) != 3 {
 			fmt.Println("Usage: search lastname")
 			return
@@ -55,7 +55,7 @@ func main() {
 			return
 		}
 		fmt.Println(*result)
-	case "list":
+	case "l":
 		list()
 		// Response to anything that is not a match
 	default:
